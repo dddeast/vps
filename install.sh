@@ -49,7 +49,6 @@ StopInstall(){
     rm -rf /usr/local/shadowsocksr
     rm -rf ${PWD}/libsodium*
     rm -rf /etc/init.d/ssr-bash-python
-    rm -rf /usr/local/AR-B-P-B
     if [[ ${OS} == CentOS  ]];then
         sed -n -i 's#/etc/init.d/ssr-bash-python#d' /etc/rc.d/rc.local
     fi

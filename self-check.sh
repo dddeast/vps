@@ -2,7 +2,7 @@
 #Check Root
 [ $(id -u) != "0" ] && { echo "Error: You must be root to run this script"; exit 1; }
 echo "##################################
-      AR-B-P-B 自检系统
+              自检系统
              V1.0 Alpha
 ##################################"
 rm -f report.json

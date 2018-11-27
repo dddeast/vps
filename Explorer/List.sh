@@ -28,7 +28,7 @@ end='\E[0m'    #返回  返回初始颜色
 
 #显示内容
 if [ "$1" = "" ] ; then
-  in_title="      列表选择" ; in_made="      AR-B-P-B"
+  in_title="      列表选择" ; in_made="      "
   in_show="1" ; in_pagenum="0" ; in_init="0"
   declare -a in_list=( '列表选择程序'\
   '参数: 标题 关于 错误 强调 数量 初始'\
