@@ -348,6 +348,7 @@ if [[ $1 == develop ]];then
         	echo "你居然拒绝了T.T"
         fi
     fi
+    # 没有用可以考虑手动添加
     checkcron=$(crontab -l 2>/dev/null | grep "timelimit.sh")
     if [[ -z ${checkcron} ]];then
         crontab -l > ~/crontab.bak 1>/dev/null 2>&1

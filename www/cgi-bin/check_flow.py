@@ -25,6 +25,13 @@ for x in json:
 		transfer_unit = "MB"
 		d_unit = "MB"
 
+		for line in open("/usr/local/SSR-Bash-Python/timelimit.db"):
+			item = line.split(':')
+			if item[0] == str(getport):
+				time = item[1][0:4]+"年"+item[1][4:6]+"月"+item[1][6:8]+"日 " +  item[1][8:10]+":" + item[1][10:]
+			else:
+				time = '无限制'
+
 		#流量单位转换
 		if(transfer_enable_int > 1024):
 			transfer_enable_int = transfer_enable_int/1024
@@ -109,7 +116,8 @@ formhtml = '''
 										<p class="card-heading">端口：%s</p>
 										<p>
 											已使用流量：%s %s <br>
-											总流量限制：%s %s </br></br>
+											总流量限制：%s %s </br>
+											到期时间：%s <br><br>
 											<a href="../index.html"><button class="btn" type="button">返回</button></a>
 										</p>
 									</div>
@@ -123,8 +131,7 @@ formhtml = '''
 
 
 '''
-print formhtml % (getport,d_int,d_unit,transfer_enable_int,transfer_unit)
+print formhtml % (getport,d_int,d_unit,transfer_enable_int,transfer_unit,time)
 
 print footer
-f.close();
-
+f.close()
