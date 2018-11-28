@@ -3,10 +3,10 @@
 import json
 import cgi
 
-f = file("/usr/local/shadowsocksr/mudb.json");
-json = json.load(f);
+f = file("/usr/local/shadowsocksr/mudb.json")
+json = json.load(f)
 
-# 接受表达提交的数据
+# 表单数据
 form = cgi.FieldStorage() 
 
 # 解析处理提交的数据
@@ -20,8 +20,8 @@ for x in json:
 	#当输入的端口与json端口一样时视为找到
 	if(str(x[u"port"]) == str(getport)):
 		portexist=1
-		transfer_enable_int = int(x[u"transfer_enable"])/1024/1024;
-		d_int = int(x[u"d"])/1024/1024;
+		transfer_enable_int = int(x[u"transfer_enable"])/1024/1024
+		d_int = int(x[u"d"])/1024/1024
 		transfer_unit = "MB"
 		d_unit = "MB"
 
