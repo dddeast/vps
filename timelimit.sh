@@ -11,6 +11,7 @@ unset edit
 
 #Set function
 checkonly(){
+	echo "run at: "$(date +%Y-%m-%d\ %H:%M:%S)
 	if [[ -e ${userlimit} ]];then
 		for line in $(cat ${userlimit})
 		do
@@ -18,8 +19,7 @@ checkonly(){
 				port=$(echo ${line} | awk -F':' '{ print $1 }')
 				limitdate=$(echo ${line} | awk -F':' '{ print $2 }')
 				if [[ ${nowdate} -ge ${limitdate} ]];then
-					cd /usr/local/shadowsocksr/
-					python mujson_mgr.py -d -p ${port} 1>/dev/null 2>&1
+					cd /usr/local/shadowsocksr/ && python mujson_mgr.py -d -p ${port}
 					sed -i '/'"${line}"'/d' ${userlimit}
 				fi
 			fi

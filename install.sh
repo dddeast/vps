@@ -348,7 +348,8 @@ if [[ $1 == develop ]];then
         	echo "你居然拒绝了T.T"
         fi
     fi
-    # 没有用可以考虑手动添加
+    # 没有用可以考虑手动添加 没两分钟执行一次
+    # */2 * * * * /bin/bash /usr/local/SSR-Bash-Python/timelimit.sh c >>/home/logs/cron/c_$(date +\%Y\%m\%d).log 2>&1
     checkcron=$(crontab -l 2>/dev/null | grep "timelimit.sh")
     if [[ -z ${checkcron} ]];then
         crontab -l > ~/crontab.bak 1>/dev/null 2>&1
